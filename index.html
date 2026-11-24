@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ranzuid-STR</title>
+<meta name="description" content="Koleksi ID cantik siap beli. Klik BELI, langsung chat WhatsApp.">
+<meta name="theme-color" content="#07101c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Unbounded:wght@600;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="Ranzuid-STR.css">
+</head>
+<body>
+
+<div class="orbs" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<header class="top glass">
+  <button class="brand" id="logo" type="button" aria-label="Ranzuid-STR">
+    <span class="eye"></span><span class="brand-t">Ranzuid-STR</span>
+  </button>
+
+  <nav class="nav" id="nav" aria-label="Menu utama">
+    <a class="nav-link" href="#beranda">Beranda</a>
+    <a class="nav-link" href="#daftar">Daftar ID</a>
+    <a class="nav-link" href="#saluran">Saluran</a>
+    <a class="nav-link" href="#transaksi">Transaksi</a>
+  </nav>
+
+  <div class="top-actions">
+    <a class="chip cta" href="https://whatsapp.com/channel/0029Vb8SYam1iUxZub3IFA2L" target="_blank" rel="noopener">Join Saluran</a>
+    <button class="burger" id="burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="bento" id="beranda">
+    <article class="tile glass hero">
+      <h1>ID cantik</h1>
+      <p>Pilih ID favoritmu, klik BELI, dan kamu langsung tersambung ke WhatsApp penjual.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#daftar">Pilih ID</a>
+        <a class="btn ghost" href="https://whatsapp.com/channel/0029Vb8SYam1iUxZub3IFA2L" target="_blank" rel="noopener">Join Saluran</a>
+      </div>
+    </article>
+
+    <article class="tile glass featured">
+      <span class="label">ID pilihan</span>
+      <strong class="mono big" id="featId">-</strong>
+      <div class="row">
+        <span class="price" id="featPrice">-</span>
+        <a class="btn sm" id="featBuy" href="#" target="_blank" rel="noopener">BELI</a>
+      </div>
+    </article>
+
+    <article class="tile glass stat">
+      <strong id="statCount">0</strong>
+      <span class="label muted">ID tersedia</span>
+    </article>
+
+    <article class="tile glass stat">
+      <strong id="statMin">-</strong>
+      <span class="label muted">Harga mulai</span>
+    </article>
+
+    <article class="tile glass wa" id="transaksi">
+      <span class="label">Transaksi</span>
+      <p>Tanpa ribet. Pesan terisi otomatis, tinggal kirim.</p>
+    </article>
+
+    <article class="tile glass channel" id="saluran">
+      <span class="label">Saluran WhatsApp</span>
+      <a class="btn" href="https://whatsapp.com/channel/0029Vb8SYam1iUxZub3IFA2L" target="_blank" rel="noopener">Join Saluran</a>
+    </article>
+  </section>
+
+  <section id="daftar" class="list-wrap">
+    <div class="list-head">
+      <h2>Daftar ID</h2>
+      <input class="glass search" id="search" type="search" inputmode="numeric" placeholder="Cari angka, mis. 999" aria-label="Cari ID">
+    </div>
+    <div class="grid" id="list"></div>
+    <p class="empty" id="empty" hidden>Tidak ada ID yang cocok. Coba angka lain.</p>
+  </section>
+</main>
+
+<footer>
+  <p>Chat via WhatsApp saat klik BELI.</p>
+  <a href="https://whatsapp.com/channel/0029Vb8SYam1iUxZub3IFA2L" target="_blank" rel="noopener">Join saluran WhatsApp</a>
+</footer>
+
+<dialog id="admin" class="glass modal">
+  <div class="modal-head">
+    <h3>Panel penjual</h3>
+    <button class="x" id="close" type="button" aria-label="Tutup">×</button>
+  </div>
+
+  <form id="pinForm" class="stack">
+    <label>PIN
+      <input id="pin" type="password" inputmode="numeric" autocomplete="off" placeholder="Masukkan PIN">
+    </label>
+    <button class="btn" type="submit">Buka panel</button>
+    <p class="msg" id="pinMsg"></p>
+  </form>
+
+  <div id="panel" hidden>
+    <form id="addForm" class="add">
+      <input id="newId" inputmode="numeric" placeholder="ID, mis. 1920000003" required>
+      <input id="newPrice" placeholder="Harga, mis. 30k" required>
+      <button class="btn" type="submit">Tambah ID</button>
+    </form>
+    <p class="msg" id="addMsg"></p>
+    <ul class="admin-list" id="adminList"></ul>
+    <div class="tools">
+      <button class="chip" id="copy" type="button">Salin data (JSON)</button>
+      <button class="chip danger" id="reset" type="button">Reset ke awal</button>
+    </div>
+    <p class="hint">Data tersimpan di browser ini saja. Supaya pembeli di semua perangkat melihat ID baru, salin JSON lalu tempel ke <code>DEFAULT</code> di <code>Ranzuid-STR.js</code> dan deploy ulang.</p>
+  </div>
+</dialog>
+
+<script src="Ranzuid-STR.js"></script>
+</body>
+</html>
